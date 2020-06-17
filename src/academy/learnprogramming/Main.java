@@ -7,7 +7,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        printArray(5);
+        sortArray(5);
     }
 
     public static int[] getInteger(int number){
@@ -20,7 +20,7 @@ public class Main {
         return sourceData;
     }
 
-    public static void printArray(int number){
+    public static int[] printArray(int number){
         int[] print = getInteger(number);
 
         System.out.println("Array data before sorting");
@@ -28,20 +28,27 @@ public class Main {
         for (int i=0; i<print.length; i++) {
             System.out.println("Element [" + i + "] is " + print[i]);
         }
+        return print;
     }
 
     public static void sortArray(int number){
-        int[] toBeSort = getInteger(number);
+        int[] toBeSort = printArray(number);
         int[] sorted = new int[number];
-        int temp = toBeSort[0];                             // temp = 2
 
         for (int i=0; i<toBeSort.length; i++) {
+            int temp = toBeSort[i];
             for (int j=0; j<toBeSort.length; j++) {
                 if (temp < toBeSort[j]) {
                     temp = toBeSort[j];
                 }
-                sorted[]
+                sorted[j] = temp;
             }
+        }
+
+        System.out.println("Array data After sorting");
+        System.out.println("-------------------------");
+        for (int i=0; i<sorted.length; i++) {
+            System.out.println("Element [" + i + "] is " + sorted[i]);
         }
     }
 }
